@@ -1,7 +1,9 @@
+import SearchAppBar from '@/components/SearchAppBar'
+
 export default function Home() {
   return (
     <main>
-      <h1>Monito</h1>
+      <SearchAppBar />
     </main>
   )
 }
