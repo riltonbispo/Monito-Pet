@@ -16,13 +16,14 @@ import {
 } from './style'
 import { useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
+import { StyledContainer } from '@/styles/utils'
 
-export default function SearchAppBar() {
+export default function Header() {
   const theme = useTheme()
   const isScreenLarge = useMediaQuery(theme.breakpoints.up('sm'))
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <StyledContainer>
       <StyledAppBar position="static">
         <StyledToolbar>
           <IconButton
@@ -58,6 +59,6 @@ export default function SearchAppBar() {
           )}
         </StyledToolbar>
       </StyledAppBar>
-    </Box>
+    </StyledContainer>
   )
 }
