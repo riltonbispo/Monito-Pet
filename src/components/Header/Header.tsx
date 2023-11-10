@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import SearchIcon from '@mui/icons-material/Search'
@@ -14,16 +13,15 @@ import {
   StyledInputBase,
   StyledAppBar,
 } from './style'
-import { useMediaQuery } from '@mui/material'
+import { Box, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
-import { StyledContainer } from '@/styles/utils'
 
 export default function Header() {
   const theme = useTheme()
   const isScreenLarge = useMediaQuery(theme.breakpoints.up('sm'))
 
   return (
-    <StyledContainer>
+    <Box sx={{ flexGrow: 1, marginInline: 'auto' }} maxWidth="lg">
       <StyledAppBar position="static">
         <StyledToolbar>
           <IconButton
@@ -59,6 +57,6 @@ export default function Header() {
           )}
         </StyledToolbar>
       </StyledAppBar>
-    </StyledContainer>
+    </Box>
   )
 }
