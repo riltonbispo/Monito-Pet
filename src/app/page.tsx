@@ -1,9 +1,11 @@
-import SearchAppBar from '@/components/SearchAppBar'
+import Banner from '@/components/Banner'
+import Header from '@/components/Header'
 
 export default function Home() {
   return (
     <main>
-      <SearchAppBar />
+      <Header />
+      <Banner />
     </main>
   )
 }
