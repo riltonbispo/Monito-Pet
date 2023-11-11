@@ -1,11 +1,12 @@
-import { styled, alpha, InputBase, Toolbar, AppBar } from '@mui/material'
+import { styled, alpha, InputBase } from '@mui/material'
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar'
 
 export const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.primary.main, 0.15),
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.primary.main, 0.25),
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
   width: '100%',
@@ -26,7 +27,7 @@ export const SearchIconWrapper = styled('div')(({ theme }) => ({
 }))
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: theme.palette.text.primary,
+  color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -41,16 +42,32 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-export const StyledToolbar = styled(Toolbar)({
-  background: 'transparent',
-  justifyContent: 'space-between',
-})
+interface AppBarProps extends MuiAppBarProps {
+  open?: boolean
+}
+const drawerWidth = 240
 
-export const StyledAppBar = styled(AppBar)({
-  background: 'transparent',
-  boxShadow: 'none',
-})
+export const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})<AppBarProps>(({ theme, open }) => ({
+  transition: theme.transitions.create(['margin', 'width'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginRight: drawerWidth,
+  }),
+}))
 
-export const StyledLogo = styled('img')({
-  width: 'clamp(5.75rem; 100%; 7rem)',
-})
+export const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(0, 1),
+  ...theme.mixins.toolbar,
+  justifyContent: 'flex-start',
+}))
