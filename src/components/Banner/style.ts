@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography, styled } from '@mui/material'
+import { Container, Typography, styled } from '@mui/material'
 import Image from 'next/image'
 
 export const StyledContent = styled(Container)(({ theme }) => ({
@@ -19,7 +19,7 @@ export const Title = styled(Typography)(({ theme }) => ({
 
 export const SubTitle = styled(Typography)(({ theme }) => ({
   fontSize: 'clamp(1.75rem, 4vw, 1.75rem)',
-  fontWeight: theme.typography.fontWeightBold,
+  fontWeight: theme.typography.fontWeightMedium,
 }))
 
 export const Description = styled(Typography)(({ theme }) => ({
@@ -27,15 +27,6 @@ export const Description = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,
   marginBottom: '2rem',
 }))
-
-export const GroupButton = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  gap: theme.spacing(2),
-}))
-
-export const HeroButton = styled(Button)({
-  borderRadius: '3.5rem',
-})
 
 export const Img = styled(Image)({
   maxWidth: '100%',

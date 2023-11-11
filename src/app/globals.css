@@ -124,10 +124,5 @@ table {
 }
 
 .hero {
-  background-image: url("../assets/HerroBanner.png");
-  min-width: 100vw;
-  border-radius: 0rem 0rem 1.25rem 1.25rem;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: #e3f2fd;
 }
